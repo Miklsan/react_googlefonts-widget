@@ -1,15 +1,25 @@
 import React from "react"
 
-const FontsCards = () => {
-    const style = { width: "18rem" }
-    return (<div className="card" style={style}>
-        <div className="card-body">
-            <h5 className="card-title d-flex aling-items-center justify-content-between"><span>Card title</span>  <small>variants</small></h5>
-            <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-        </div>
-    </div>)
+const FontsCards = (props) => {
+    const { family, variants, category, text } = props
+    const UrlPlus = family.split(" ").join("+")
+
+    return (
+        <div className="card shadow p-3 mb-5 bg-white rounded col-lg-6 mb-3" >
+            <div className="card-body">
+                <h5 className="card-title d-flex aling-items-center justify-content-between">
+                    <span>{family}</span>
+                    <small> {variants.length} variant(s)</small>
+                </h5>
+                <button type="button" className="btn btn-dark btn-sm p-0 mb-2">{category}</button>
+                <p className="card-text">{text}</p>
+                <a rel="noopener noreferrer"
+                    target="_blank"
+                    className="text-danger"
+                    href={`https://fonts.google.com/specimen/${UrlPlus}`}>Voir sur Google Fonts (ouvre un nouveau tab)</a>
+            </div>
+        </div>)
 }
 
 export default FontsCards
+
