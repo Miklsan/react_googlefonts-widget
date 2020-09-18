@@ -9,7 +9,16 @@ const FontSizeSlider = ({ size, setSize }) => {
     return (
         <div className="mb-3">
             <label htmlFor="customRange" className="form-label"><b>La taille de police</b></label>
-            <input value={size} type="range" className="form-range" min="8" max="48" step="1" id="customRange" onChange={handleSizeChange} ></input>
+            <input value={size}
+                type="range"
+                className="form-range"
+                min="8"
+                max="48"
+                step="1"
+                id="customRange"
+                onChange={handleSizeChange} >
+
+            </input>
         </div>
     )
 }
