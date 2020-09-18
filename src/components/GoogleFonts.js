@@ -3,8 +3,10 @@ import { useState, useEffect } from "react"
 const GoogleFonts = (results = "date") => {
     const [fonts, setFonts] = useState([])
     useEffect(() => {
+        const ApiKey = process.env.REACT_APP_GOOGLE_FONTS_API_KEY
+        const url = `https://www.googleapis.com/webfonts/v1/webfonts?sort=${results}&key=${ApiKey}`
         fetch(
-            `https://www.googleapis.com/webfonts/v1/webfonts?sort=${results}&key=AIzaSyDZQp2PRlSukUM0TZw75qe42rmuyPe6yTE`
+            url
         )
             .then((response) => {
                 if (response.ok) {

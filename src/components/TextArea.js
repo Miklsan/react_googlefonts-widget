@@ -1,6 +1,9 @@
 import React from "react"
 
-const TextArea = ({ children }) => {
+const TextArea = ({ text, setText }) => {
+    const handleTextAreaChange = (e) => {
+        setText(e.target.value)
+    }
     return (
         <div className="mb-3">
             <label htmlFor="text" className="form-label font-weight-bold mb-3">
@@ -9,7 +12,8 @@ const TextArea = ({ children }) => {
             <textarea
                 id="text"
                 className="form-control"
-                defaultValue="Portez ce vieux whisky au juge blond qui fume !? 0123456789"
+                value={text}
+                onChange={handleTextAreaChange}
             >
             </textarea>
 
